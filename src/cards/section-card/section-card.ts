@@ -43,7 +43,7 @@ export class MagicSectionCard extends LitElement implements LovelaceCard {
   @state() private config!: MagicSectionCardConfig;
 
   public static async getConfigElement(): Promise<LovelaceCardEditor> {
-    await import("./editor");
+    await import("./section-card-editor");
     return document.createElement(
       card.editor.prefixedtype
     ) as LovelaceCardEditor;

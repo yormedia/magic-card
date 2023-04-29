@@ -53,6 +53,10 @@ export default [
       format: "es",
       inlineDynamicImports: true,
     },
+    onwarn(warning, warn) {
+        if (warning.code === 'THIS_IS_UNDEFINED') return;
+        warn(warning);
+    },
     plugins,
     moduleContext: (id) => {
       const thisAsWindowForModules = [
