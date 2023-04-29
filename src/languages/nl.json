@@ -1,0 +1,8 @@
+{
+  "common": {
+    "version": "Versie",
+    "invalid_configuration": "Configuratie niet correct",
+    "show_warning": "Geef Waarschuwing weer",
+    "show_error": "Geef foutmedling weer"
+  }
+}
