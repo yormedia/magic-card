@@ -54,7 +54,7 @@ export default [
       inlineDynamicImports: true,
     },
     onwarn(warning, warn) {
-        if (warning.code === 'THIS_IS_UNDEFINED') return;
+        // if (warning.code === 'THIS_IS_UNDEFINED') return;
         warn(warning);
     },
     plugins,
@@ -63,7 +63,7 @@ export default [
         "node_modules/@formatjs/intl-utils/lib/src/diff.js",
         "node_modules/@formatjs/intl-utils/lib/src/resolve-locale.js",
       ];
-      if (thisAsWindowForModules.some((id_) => id.trimRight().endsWith(id_))) {
+      if (thisAsWindowForModules.some((id) => id.trimRight().endsWith(id))) {
         return "window";
       }
     },
