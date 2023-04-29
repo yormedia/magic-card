@@ -80,7 +80,7 @@ const Se=1,ke=3,Le=4,Fe=e=>(...t)=>({_$litDirective$:e,values:t});let $e=class{c
         tabindex="0"
         .label=${`${We.type}: ${this.config.entity||"No Entity Defined"}`}
       ></ha-card>
-    `}_handleAction(e){this.hass&&this.config&&e.detail.action&&function(e,t,i,n){var o;"double_tap"===n&&i.double_tap_action?o=i.double_tap_action:"hold"===n&&i.hold_action?o=i.hold_action:"tap"===n&&i.tap_action&&(o=i.tap_action),Oe(e,t,i,o)}(this,this.hass,this.config,e.detail.action)}_showWarning(e){return ie` <hui-warning>${e}</hui-warning> `}_showError(e){const t=document.createElement("hui-error-card");return t.setConfig({type:"error",error:e,origConfig:this.config}),ie` ${t} `}static get styles(){return A``}};a([p({attribute:!1})],Ge.prototype,"hass",void 0),a([m()],Ge.prototype,"config",void 0),Ge=a([c(We.type)],Ge),console.info(`%c 🪄 ${i.name} 🪄 %c ${i.version}`,"color: black; font-weight: bold; background: orange");
+    `}_handleAction(e){this.hass&&this.config&&e.detail.action&&function(e,t,i,n){var o;"double_tap"===n&&i.double_tap_action?o=i.double_tap_action:"hold"===n&&i.hold_action?o=i.hold_action:"tap"===n&&i.tap_action&&(o=i.tap_action),Oe(e,t,i,o)}(this,this.hass,this.config,e.detail.action)}_showWarning(e){return ie` <hui-warning>${e}</hui-warning> `}_showError(e){const t=document.createElement("hui-error-card");return t.setConfig({type:"error",error:e,origConfig:this.config}),ie` ${t} `}static get styles(){return A``}};a([p({attribute:!1})],Ge.prototype,"hass",void 0),a([m()],Ge.prototype,"config",void 0),Ge=a([c(We.type)],Ge),console.info(`%c 🪄 ${i.name} 🪄 - ${i.version} `,"color: white; font-weight: 800; background: orange");
 /**
  * @license
  * Copyright 2016 Google Inc.

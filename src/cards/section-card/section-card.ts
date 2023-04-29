@@ -36,7 +36,6 @@ registerCustomCard({
 
 @customElement(card.type)
 export class MagicSectionCard extends LitElement implements LovelaceCard {
-  
   // TODO Add any properties that should cause your element to re-render here
   // https://lit.dev/docs/components/properties/
   @property({ attribute: false }) public hass!: HomeAssistant;
@@ -52,7 +51,6 @@ export class MagicSectionCard extends LitElement implements LovelaceCard {
   public static getStubConfig(): Record<string, unknown> {
     return {};
   }
-
 
   getCardSize(): number | Promise<number> {
     return 1;
