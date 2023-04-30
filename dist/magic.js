@@ -1070,7 +1070,7 @@ const Hn=A`.material-icons{font-family:var(--mdc-icon-font, "Material Icons");fo
           </mwc-tab-bar>
         </div>
         <div id="editor">
-          ${[this._renderDataEditor,this._renderDesignEditor][this._selectedTab].bind(this)()}
+          ${[this._renderDataEditor,this._renderDesignEditor][this._selectedTab]}
         </div>
       </div>
     `:ie``}_renderDataEditor(){if(!this.hass||!this._helpers)return ie``;const e=Object.keys(this.hass.states);return Object.assign({},this._config),ie`

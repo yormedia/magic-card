@@ -123,7 +123,7 @@ export class MagicSectionCardEditor extends LitElement {
         <div id="editor">
           ${[this._renderDataEditor, this._renderDesignEditor][
             this._selectedTab
-          ].bind(this)()}
+          ]}
         </div>
       </div>
     `;
