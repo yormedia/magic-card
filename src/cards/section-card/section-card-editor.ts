@@ -6,7 +6,7 @@ import {
   LovelaceCardEditor,
 } from "custom-card-helpers";
 
-import { getCardData } from "../../global/constants";
+import { bundle, getCardData } from "../../global/constants";
 const card = getCardData("section");
 
 // import { ScopedRegistryHost } from "@lit-labs/scoped-registry-mixin";
@@ -139,6 +139,7 @@ export class MagicSectionCardEditor extends LitElement {
     const data = {
       ...this._config,
     };
+    console.info(`%c 🪄 ${bundle.name} 🪄 - Loading Editor`);
     return html`
       <div class="card-config">
         <div id="editor">

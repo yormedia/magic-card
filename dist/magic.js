@@ -1073,7 +1073,7 @@ const Hn=A`.material-icons{font-family:var(--mdc-icon-font, "Material Icons");fo
           ${[this._renderDataEditor,this._renderDesignEditor][this._selectedTab].bind(this)()}
         </div>
       </div>
-    `:ie``}_renderDataEditor(){if(!this.hass||!this._helpers)return ie``;const e=Object.keys(this.hass.states);return Object.assign({},this._config),ie`
+    `:ie``}_renderDataEditor(){if(!this.hass||!this._helpers)return ie``;const e=Object.keys(this.hass.states);return Object.assign({},this._config),console.info(`%c 🪄 ${i.name} 🪄 - Loading Editor`),ie`
       <div class="card-config">
         <div id="editor">
           <mwc-select
