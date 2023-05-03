@@ -24,16 +24,16 @@ import {
   hasAction,
 } from "../../ha";
 import { MagicBaseCard } from "../../components/base-card";
-import { MagicSectionCardConfig } from "./container-card-config";
+import { MagicContainerCardConfig } from "./container-card-config";
 import setupCustomlocalize from "../../localize";
 import { actionHandler } from "./container-action-handler-directive";
 
 registerCustomCard(card.register);
 
-@customElement(card.register.name)
+@customElement(card.register.type)
 export class MagicContainerCard extends MagicBaseCard implements LovelaceCard {
   @property({ attribute: false }) public hass!: HomeAssistant;
-  @state() private config!: MagicSectionCardConfig;
+  @state() private config!: MagicContainerCardConfig;
 
   getCardSize(): number | Promise<number> {
     return card.size;
@@ -41,7 +41,7 @@ export class MagicContainerCard extends MagicBaseCard implements LovelaceCard {
 
   localize = setupCustomlocalize(this.hass);
 
-  setConfig(config: MagicSectionCardConfig): void {
+  setConfig(config: MagicContainerCardConfig): void {
     // TODO Check for required fields and that they are of the proper format
     if (!config) {
       throw new Error(this.localize("common.invalid_configuration"));

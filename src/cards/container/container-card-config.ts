@@ -7,13 +7,13 @@ import {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "magic-section-card-editor": LovelaceCardEditor;
+    "magic-container-card-editor": LovelaceCardEditor;
     "hui-error-card": LovelaceCard;
   }
 }
 
 // TODO Add your configuration elements here for type-checking
-export interface MagicSectionCardConfig extends LovelaceCardConfig {
+export interface MagicContainerCardConfig extends LovelaceCardConfig {
   type: string;
   name?: string;
   show_warning?: boolean;
