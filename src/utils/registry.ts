@@ -32,7 +32,7 @@ export function getCardData(carddata: cardData) {
     editor: {
       type: `${carddata.name.toLowerCase()}-card-editor`, // <cardname>-card-editor
       prefixedtype: `${bundle.prefix}-${carddata.name.toLowerCase()}-card-editor`, // magic-<cardname>-card-editor
-      file: `./${carddata.name.toLowerCase()}-card-editor`, // ./<cardname>-card-editor
+      file: `./${carddata.name.toLowerCase()}-card-editor.ts`, // ./<cardname>-card-editor
     },
   };
 }
