@@ -1,67 +1,50 @@
-// This puts your card into the UI card picker dialog
-
-import { getCardData } from "../../global/constants";
-const card = getCardData("section");
-
-import { customElement, property, state } from "lit/decorators.js";
+import { card } from "./container-card-constants";
+import { HassEntity } from "home-assistant-js-websocket";
 import {
   css,
   CSSResultGroup,
   html,
-  LitElement,
+  nothing,
   PropertyValues,
   TemplateResult,
 } from "lit";
+import { customElement, property, state } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
+import { styleMap } from "lit/directives/style-map.js";
+import { registerCustomCard } from "../../components/custom-cards";
 import {
   ActionHandlerEvent,
   getLovelace,
   handleAction,
-  hasAction,
   hasConfigOrEntityChanged,
   HomeAssistant,
   LovelaceCard,
+  LovelaceCardConfig,
   LovelaceCardEditor,
-} from "custom-card-helpers";
+  hasAction,
+} from "../../ha";
+import { MagicBaseCard } from "../../components/base-card";
+import { MagicSectionCardConfig } from "./container-card-config";
+import setupCustomlocalize from "../../localize";
+import { actionHandler } from "./container-action-handler-directive";
 
-import { MagicSectionCardConfig } from "./types";
-import { actionHandler } from "./action-handler-directive";
-import { registerCustomCard } from "../../global/customCards";
-import { localize } from "../../localize";
+registerCustomCard(card.register);
 
-registerCustomCard({
-  type: card.type,
-  name: card.name,
-  description: card.description,
-});
-
-@customElement(card.type)
-export class MagicSectionCard extends LitElement implements LovelaceCard {
-  // TODO Add any properties that should cause your element to re-render here
-  // https://lit.dev/docs/components/properties/
+@customElement(card.register.name)
+export class MagicContainerCard extends MagicBaseCard implements LovelaceCard {
   @property({ attribute: false }) public hass!: HomeAssistant;
   @state() private config!: MagicSectionCardConfig;
 
-  public static async getConfigElement(): Promise<LovelaceCardEditor> {
-    await import("./section-card-editor");
-    return document.createElement(
-      card.editor.prefixedtype
-    ) as LovelaceCardEditor;
-  }
-
-  public static getStubConfig(): Record<string, unknown> {
-    return {};
-  }
-
   getCardSize(): number | Promise<number> {
-    return 1;
+    return card.size;
   }
 
-  // https://lit.dev/docs/components/properties/#accessors-custom
+  localize = setupCustomlocalize(this.hass);
 
   setConfig(config: MagicSectionCardConfig): void {
     // TODO Check for required fields and that they are of the proper format
     if (!config) {
-      throw new Error(localize("common.invalid_configuration"));
+      throw new Error(this.localize("common.invalid_configuration"));
     }
 
     if (config.test_gui) {
@@ -69,9 +52,19 @@ export class MagicSectionCard extends LitElement implements LovelaceCard {
     }
 
     this.config = {
-      name: card.type,
+      name: card.register.type,
       ...config,
     };
+  }
+  public static async getConfigElement(): Promise<LovelaceCardEditor> {
+    await import(card.editor.file);
+    return document.createElement(
+      card.editor.prefixedtype
+    ) as LovelaceCardEditor;
+  }
+
+  public static getStubConfig(): Record<string, unknown> {
+    return {};
   }
 
   // https://lit.dev/docs/components/lifecycle/#reactive-update-cycle-performing
@@ -87,11 +80,11 @@ export class MagicSectionCard extends LitElement implements LovelaceCard {
   protected render(): TemplateResult | void {
     // TODO Check for stateObj or other necessary things and render a warning if missing
     if (this.config.show_warning) {
-      return this._showWarning(localize("common.show_warning"));
+      return this._showWarning(this.localize("common.show_warning"));
     }
 
     if (this.config.show_error) {
-      return this._showError(localize("common.show_error"));
+      return this._showError(this.localize("common.show_error"));
     }
 
     return html`
@@ -103,7 +96,9 @@ export class MagicSectionCard extends LitElement implements LovelaceCard {
           hasDoubleClick: hasAction(this.config.double_tap_action),
         })}
         tabindex="0"
-        .label=${`${card.type}: ${this.config.entity || "No Entity Defined"}`}
+        .label=${`${card.register.type}: ${
+          this.config.entity || "No Entity Defined"
+        }`}
       ></ha-card>
     `;
   }

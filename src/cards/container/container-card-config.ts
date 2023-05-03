@@ -3,7 +3,7 @@ import {
   LovelaceCard,
   LovelaceCardConfig,
   LovelaceCardEditor,
-} from "custom-card-helpers";
+} from "../../ha";
 
 declare global {
   interface HTMLElementTagNameMap {

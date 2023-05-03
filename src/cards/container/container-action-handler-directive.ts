@@ -5,12 +5,7 @@ import {
   Directive,
   DirectiveParameters,
 } from "lit/directive.js";
-
-import {
-  ActionHandlerDetail,
-  ActionHandlerOptions,
-} from "custom-card-helpers/dist/types";
-import { fireEvent } from "custom-card-helpers";
+import { ActionHandlerDetail, ActionHandlerOptions, fireEvent } from "../../ha";
 
 const isTouch =
   "ontouchstart" in window ||

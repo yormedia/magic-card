@@ -1,9 +1,10 @@
-import { bundle } from "./global/constants";
+import { bundle } from "./utils/registry";
 
-export { MagicSectionCard } from "./cards/section-card/section-card";
+export { MagicContainerCard } from "./cards/container/container-card";
+// export { MagicSectionCard } from "./cards/section-card/section-card";
 
 /* eslint no-console: 0 */
 console.info(
-  `%c 🪄 ${bundle.name} 🪄 - ${bundle.version} `,
-  "color: white; font-weight: 800; background: orange"
+  `%c 🪄 ${bundle.name} 🪄 %c ${bundle.version}`,
+  "color: black; font-weight: bold; background: orange"
 );

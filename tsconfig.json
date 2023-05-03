@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "target": "es2017",
     "module": "esnext",
@@ -14,7 +15,6 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-    "useDefineForClassFields": false,
     "outDir": "dist",
     "rootDir": "."
   },
