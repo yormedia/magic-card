@@ -57,8 +57,9 @@ export class MagicContainerCard extends MagicBaseCard implements LovelaceCard {
     };
   }
   public static async getConfigElement(): Promise<LovelaceCardEditor> {
-    await import(card.editor.file);
     magiclogger(`Editor name: ${card.editor.prefixedtype}`);
+    magiclogger(`Editor file: ${card.editor.file}`);
+    await import(card.editor.file);
     return document.createElement(
       card.editor.prefixedtype
     ) as LovelaceCardEditor;
