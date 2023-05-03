@@ -7,7 +7,7 @@ import {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "container-card-editor": LovelaceCardEditor;
+    "magic-container-card-editor": LovelaceCardEditor;
     "hui-error-card": LovelaceCard;
   }
 }

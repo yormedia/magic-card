@@ -183,15 +183,15 @@ class ActionHandler extends HTMLElement implements ActionHandler {
 }
 
 // TODO You need to replace all instances of "action-handler-magic-section" with "action-handler-<your card name>"
-customElements.define("action-handler-magic-section", ActionHandler);
+customElements.define("action-handler-magic-container", ActionHandler);
 
 const getActionHandler = (): ActionHandler => {
   const body = document.body;
-  if (body.querySelector("action-handler-magic-section")) {
-    return body.querySelector("action-handler-magic-section") as ActionHandler;
+  if (body.querySelector("action-handler-magic-container")) {
+    return body.querySelector("action-handler-magic-container") as ActionHandler;
   }
 
-  const actionhandler = document.createElement("action-handler-magic-section");
+  const actionhandler = document.createElement("action-handler-magic-container");
   body.appendChild(actionhandler);
 
   return actionhandler as ActionHandler;

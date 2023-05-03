@@ -17,6 +17,10 @@ interface cardData {
 
 export function getCardData(carddata: cardData) {
   return {
+    bundle: {
+      name: bundle.name,
+      prefix: bundle.prefix
+    },
     register: {
       type: `${bundle.prefix}-${carddata.name.toLowerCase()}-card`, // magic-<cardname>-card
       name: `${bundle.name} ${convertstring.capitalize(carddata.name)} Card`, // Magic <Cardname> Card
