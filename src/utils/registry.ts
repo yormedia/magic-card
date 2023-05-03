@@ -27,9 +27,7 @@ export function getCardData(carddata: cardData) {
     size: carddata.size || 1,
     editor: {
       type: `${carddata.name.toLowerCase()}-card-editor`, // <cardtype>-card-editor
-      prefixedtype: `${
-        bundle.prefix
-      }-${carddata.name.toLowerCase()}-card-editor`, // magic-<cardtype>-card-editor
+      prefixedtype: `${bundle.prefix}-${carddata.name.toLowerCase()}-card-editor`, // magic-<cardtype>-card-editor
       file: `./${carddata.name.toLowerCase()}-card-editor`, // ./<cardtype>-card-editor
     },
   };
