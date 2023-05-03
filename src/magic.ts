@@ -5,6 +5,8 @@ export { MagicContainerCard } from "./cards/container/container-card";
 
 /* eslint no-console: 0 */
 console.info(
-  `%c 🪄 ${bundle.name} 🪄 %c ${bundle.version}`,
-  "color: black; font-weight: bold; background: orange"
+  `%c 🪄 ${bundle.name} 🪄 `,
+  `%c ${bundle.version} `,
+  "color: black; font-weight: bold; background: orange",
+  "color: orange; font-weight: bold; background: black"
 );
