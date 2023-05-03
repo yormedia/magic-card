@@ -29,7 +29,7 @@ var ot,rt;class at extends A{constructor(){super(...arguments),this.renderOption
 const ct=(t,e)=>"method"===e.kind&&e.descriptor&&!("value"in e.descriptor)?{...e,finisher(i){i.createProperty(e.key,t)}}:{kind:"field",key:Symbol(),placement:"own",descriptor:{},originalKey:e.key,initializer(){"function"==typeof e.initializer&&(this[e.key]=e.initializer.call(this))},finisher(i){i.createProperty(e.key,t)}};
 /**
  * @license
- * Copyright 2017 Google LLC
+ * Copyright 2017 Google LLC 
  * SPDX-License-Identifier: BSD-3-Clause
  */function ht(t){return(e,i)=>void 0!==i?((t,e,i)=>{e.constructor.createProperty(i,t)})(t,e,i):ct(t,e)}
 /**

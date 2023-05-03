@@ -19,7 +19,6 @@ import {
   hasConfigOrEntityChanged,
   HomeAssistant,
   LovelaceCard,
-  LovelaceCardConfig,
   LovelaceCardEditor,
   hasAction,
 } from "../../ha";

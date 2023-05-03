@@ -18,7 +18,7 @@ interface cardData {
 export function getCardData(carddata: cardData) {
   return {
     register: {
-      type: `${bundle.prefix}-${carddata.name.toLowerCase()}-card`, // magic-<cardtype>-card
+      type: `${bundle.prefix}-${carddata.name.toLowerCase()}-card`, // magic-<cardname>-card
       name: `${bundle.name} ${convertstring.capitalize(carddata.name)} Card`, // Magic <Cardname> Card
       description:
         carddata.description ||
@@ -26,9 +26,9 @@ export function getCardData(carddata: cardData) {
     },
     size: carddata.size || 1,
     editor: {
-      type: `${carddata.name.toLowerCase()}-card-editor`, // <cardtype>-card-editor
-      prefixedtype: `${bundle.prefix}-${carddata.name.toLowerCase()}-card-editor`, // magic-<cardtype>-card-editor
-      file: `./${carddata.name.toLowerCase()}-card-editor`, // ./<cardtype>-card-editor
+      type: `${carddata.name.toLowerCase()}-card-editor`, // <cardname>-card-editor
+      prefixedtype: `${bundle.prefix}-${carddata.name.toLowerCase()}-card-editor`, // magic-<cardname>-card-editor
+      file: `./${carddata.name.toLowerCase()}-card-editor`, // ./<cardname>-card-editor
     },
   };
 }

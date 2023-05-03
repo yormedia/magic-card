@@ -8,7 +8,7 @@ import { selectDefinition } from '../../../elements/select';
 import { switchDefinition } from '../../../elements/switch';
 import { textfieldDefinition } from '../../../elements/textfield';
 import { tabDefinition } from '../../../elements/tab';
-// import { tabbarDefinition } from '../../../elements/tab-bar';
+import { tabbarDefinition } from '../../../elements/tab-bar';
 
 import { card } from './container-card-constants';
 import { HomeAssistant, LovelaceCardEditor, fireEvent } from '../../ha';
@@ -32,7 +32,7 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
         ...selectDefinition,
         ...switchDefinition,
         ...tabDefinition,
-        // ...tabbarDefinition,
+        ...tabbarDefinition,
         ...formfieldDefinition,
     };
 
