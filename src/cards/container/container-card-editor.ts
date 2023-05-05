@@ -189,36 +189,40 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
         fireEvent(this, 'config-changed', { config: this._config });
     }
 
-    static styles: CSSResultGroup = css`
-    mwc-select,
-    mwc-textfield {
-      margin-bottom: 16px;
-      display: block;
-    }
-    mwc-formfield {
-      padding-bottom: 8px;
-    }
-    mwc-switch {
-      --mdc-theme-secondary: var(--switch-checked-color);
-    }
-    mwc-tab-bar {
-      border-bottom: 1px solid var(--divider-color);
-    }
-    .layout,
-    .cards #editor {
-      margin-top: 8px;
-      border: 1px solid var(--divider-color);
-      padding: 12px;
-    }
-    .cards .toolbar {
-      display: flex;
-      --paper-tabs-selection-bar-color: var(--primary-color);
-      --paper-tab-ink: var(--primary-color);
-    }
-    paper-tabs {
-      display: flex;
-      font-size: 14px;
-      flex-grow: 1;
-    }
-  `;
+    static get styles(): CSSResultGroup {
+      return [
+        css`
+          mwc-select,
+          mwc-textfield {
+            margin-bottom: 16px;
+            display: block;
+          }
+          mwc-formfield {
+            padding-bottom: 8px;
+          }
+          mwc-switch {
+            --mdc-theme-secondary: var(--switch-checked-color);
+          }
+          mwc-tab-bar {
+            border-bottom: 1px solid var(--divider-color);
+          }
+          .layout,
+          .cards #editor {
+            margin-top: 8px;
+            border: 1px solid var(--divider-color);
+            padding: 12px;
+          }
+          .cards .toolbar {
+            display: flex;
+            --paper-tabs-selection-bar-color: var(--primary-color);
+            --paper-tab-ink: var(--primary-color);
+          }
+          paper-tabs {
+            display: flex;
+            font-size: 14px;
+            flex-grow: 1;
+          }
+        `
+      ]
+    };
 }
