@@ -80,27 +80,27 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
         return html`
           <div class="card-config">
             <div class="toolbar">
-              <mwc-tab-bar
+              <paper-tabs
                 .activeIndex=${this._selectedTab}
                 @MDCTabBar:activated=${this._handleSwitchTab}
               >
-                <mwc-tab .label=${"Data"}>
+                <paper-tab .label=${"Data"}>
                     <button role="tab" aria-selected="true" tabindex="0" class="mdc-tab mdc-tab--active">
                     <span class="mdc-tab__content">
                         <span class="mdc-tab__text-label">Design</span>
                     </span>
                         <mwc-ripple primary=""></mwc-ripple>
                     </button>
-                </mwc-tab>
-                <mwc-tab .label=${"Design"}>
-                      <button role="tab" aria-selected="true" tabindex="0" class="mdc-tab mdc-tab--active">
-                        <span class="mdc-tab__content">
-                            <span class="mdc-tab__text-label">Section</span>
-                        </span>
-                          <mwc-ripple primary=""></mwc-ripple>
-                      </button>
-                  </mwc-tab>
-              </mwc-tab-bar>
+                </paper-tab>
+                <paper-tab .label=${"Design"}>
+                  <button role="tab" aria-selected="true" tabindex="0" class="mdc-tab mdc-tab--active">
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label">Section</span>
+                    </span>
+                      <mwc-ripple primary=""></mwc-ripple>
+                  </button>
+                </paper-tab>
+              </paper-tabs>
             </div>
             <div id="editor">
               ${[this._renderDataEditor, this._renderDesignEditor][
@@ -124,7 +124,7 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
         return html`        
         <div class="card-config">
             <div id="editor">
-              <mwc-select
+              <ha-select
                 naturalMenuWidth
                 fixedMenuPosition
                 label="Entity (Required)"
@@ -136,27 +136,27 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
                 ${entities.map((entity) => {
             return html`<mwc-list-item .value=${entity}>${entity}</mwc-list-item>`;
         })}
-              </mwc-select>
-              <mwc-textfield
+              </ha-select>
+              <ha-textfield
                 label="Name (Optional)"
                 .value=${this._name}
                 .configValue=${'name'}
                 @input=${this._valueChanged}
-              ></mwc-textfield>
-              <mwc-formfield .label=${`Toggle warning ${this._show_warning ? 'off' : 'on'}`}>
-                <mwc-switch
+              ></ha-textfield>
+              <ha-formfield .label=${`Toggle warning ${this._show_warning ? 'off' : 'on'}`}>
+                <ha-switch
                   .checked=${(this._show_warning)}
                   .configValue=${'show_warning'}
                   @change=${this._valueChanged}
-                ></mwc-switch>
-              </mwc-formfield>
-              <mwc-formfield .label=${`Toggle error ${this._show_error ? 'off' : 'on'}`}>
-                <mwc-switch
+                ></ha-switch>
+              </ha-formfield>
+              <ha-formfield .label=${`Toggle error ${this._show_error ? 'off' : 'on'}`}>
+                <ha-switch
                   .checked=${(this._show_error)}
                   .configValue=${'show_error'}
                   @change=${this._valueChanged}
-                ></mwc-switch>
-              </mwc-formfield>
+                ></ha-switch>
+              </ha-formfield>
             </div>
         </div>
     `;
@@ -205,18 +205,18 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
     }
 
     static styles: CSSResultGroup = css`
-    mwc-select,
-    mwc-textfield {
+    ha-select,
+    ha-textfield {
       margin-bottom: 16px;
       display: block;
     }
-    mwc-formfield {
+    ha-formfield {
       padding-bottom: 8px;
     }
-    mwc-switch {
+    ha-switch {
       --mdc-theme-secondary: var(--switch-checked-color);
     }
-    mwc-tab-bar {
+    paper-tab-bar {
       border-bottom: 1px solid var(--divider-color);
     }
     .layout,
