@@ -1234,38 +1234,38 @@ class _n extends de{constructor(){super(...arguments),this.mdcFoundationClass=xn
  * SPDX-LIcense-Identifier: Apache-2.0
  */
 const yn=f`.mdc-tab-bar{width:100%}.mdc-tab{height:48px}.mdc-tab--stacked{height:72px}:host{display:block}.mdc-tab-bar{flex:1}mwc-tab{--mdc-tab-height: 48px;--mdc-tab-stacked-height: 72px}`,En={"mwc-tab":class extends _n{static get styles(){return yn}},"mwc-notched-outline":class extends ye{static get styles(){return Ee}}};let wn=class extends kt{constructor(){super(...arguments),this._selectedTab=0,this._selectedCard=0,this._initialized=!1}_handleSwitchTab(t){this._selectedTab=parseInt(t.detail.index,10)}setConfig(t){this._config=t,this.loadCardHelpers()}shouldUpdate(){return this._initialized||this._initialize(),!0}get _name(){var t;return(null===(t=this._config)||void 0===t?void 0:t.name)||""}get _entity(){var t;return(null===(t=this._config)||void 0===t?void 0:t.entity)||""}get _show_warning(){var t;return(null===(t=this._config)||void 0===t?void 0:t.show_warning)||!1}get _show_error(){var t;return(null===(t=this._config)||void 0===t?void 0:t.show_error)||!1}render(){return this.hass&&this._helpers?G`
-          <div class="card-config">
-            <div class="toolbar">
-              <paper-tabs
-                .activeIndex=${this._selectedTab}
-                @MDCTabBar:activated=${this._handleSwitchTab}
-              >
-                <paper-tab .label=${"Data"}>
-                    <button role="tab" aria-selected="true" tabindex="0" class="mdc-tab mdc-tab--active">
-                    <span class="mdc-tab__content">
-                        <span class="mdc-tab__text-label">Design</span>
-                    </span>
-                        <!-- <mwc-ripple primary=""></mwc-ripple> -->
-                    </button>
-                </paper-tab>
-                <paper-tab .label=${"Design"}>
+        <div class="card-config">
+          <div class="toolbar">
+            <mwc-tab-bar
+              .activeIndex=${this._selectedTab}
+              @MDCTabBar:activated=${this._handleSwitchTab}
+            >
+              <mwc-tab .label=${"Data"}>
                   <button role="tab" aria-selected="true" tabindex="0" class="mdc-tab mdc-tab--active">
-                    <span class="mdc-tab__content">
-                      <span class="mdc-tab__text-label">Section</span>
-                    </span>
-                      <!-- <mwc-ripple primary=""></mwc-ripple> -->
+                  <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label">Design</span>
+                  </span>
+                      <mwc-ripple primary=""></mwc-ripple>
                   </button>
-                </paper-tab>
-              </paper-tabs>
-            </div>
-            <div id="editor">
-              ${[this._renderDataEditor,this._renderDesignEditor][this._selectedTab].bind(this)()}
-            </div>
+              </mwc-tab>
+              <mwc-tab .label=${"Design"}>
+                    <button role="tab" aria-selected="true" tabindex="0" class="mdc-tab mdc-tab--active">
+                      <span class="mdc-tab__content">
+                          <span class="mdc-tab__text-label">Section</span>
+                      </span>
+                        <mwc-ripple primary=""></mwc-ripple>
+                    </button>
+                </mwc-tab>
+            </mwc-tab-bar>
           </div>
+          <div id="editor">
+            ${[this._renderDataEditor,this._renderDesignEditor][this._selectedTab].bind(this)()}
+          </div>
+        </div>
     `:G``}_renderDataEditor(){if(!this.hass||!this._helpers)return G``;const t=Object.keys(this.hass.states);return Object.assign({},this._config),G`        
         <div class="card-config">
             <div id="editor">
-              <ha-select
+              <mwc-select
                 naturalMenuWidth
                 fixedMenuPosition
                 label="Entity (Required)"
@@ -1274,45 +1274,45 @@ const yn=f`.mdc-tab-bar{width:100%}.mdc-tab{height:48px}.mdc-tab--stacked{height
                 @selected=${this._valueChanged}
                 @closed=${t=>t.stopPropagation()}
               >
-                ${t.map((t=>G`<ha-list-item .value=${t}>${t}</ha-list-item>`))}
-              </ha-select>
-              <ha-textfield
+                ${t.map((t=>G`<mwc-list-item .value=${t}>${t}</mwc-list-item>`))}
+              </mwc-select>
+              <mwc-textfield
                 label="Name (Optional)"
                 .value=${this._name}
                 .configValue=${"name"}
                 @input=${this._valueChanged}
-              ></ha-textfield>
-              <ha-formfield .label=${"Toggle warning "+(this._show_warning?"off":"on")}>
-                <ha-switch
+              ></mwc-textfield>
+              <mwc-formfield .label=${"Toggle warning "+(this._show_warning?"off":"on")}>
+                <mwc-switch
                   .checked=${this._show_warning}
                   .configValue=${"show_warning"}
                   @change=${this._valueChanged}
-                ></ha-switch>
-              </ha-formfield>
-              <ha-formfield .label=${"Toggle error "+(this._show_error?"off":"on")}>
-                <ha-switch
+                ></mwc-switch>
+              </mwc-formfield>
+              <mwc-formfield .label=${"Toggle error "+(this._show_error?"off":"on")}>
+                <mwc-switch
                   .checked=${this._show_error}
                   .configValue=${"show_error"}
                   @change=${this._valueChanged}
-                ></ha-switch>
-              </ha-formfield>
+                ></mwc-switch>
+              </mwc-formfield>
             </div>
         </div>
     `}_renderDesignEditor(){return this._selectedCard,G`
       <p>Hello I am the design tab.</p>
     `}_initialize(){void 0!==this.hass&&void 0!==this._config&&void 0!==this._helpers&&(this._initialized=!0)}async loadCardHelpers(){this._helpers=await window.loadCardHelpers()}_valueChanged(t){if(!this._config||!this.hass)return;const e=t.target;if(this[`_${e.configValue}`]!==e.value){if(e.configValue)if(""===e.value){const t=Object.assign({},this._config);delete t[e.configValue],this._config=t}else this._config=Object.assign(Object.assign({},this._config),{[e.configValue]:void 0!==e.checked?e.checked:e.value});Tt(this,"config-changed",{config:this._config})}}};wn.elementDefinitions=Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({},Ho),bo),Ao),en),En),ge),wn.styles=f`
-    ha-select,
-    ha-textfield {
+    mwc-select,
+    mwc-textfield {
       margin-bottom: 16px;
       display: block;
     }
-    ha-formfield {
+    mwc-formfield {
       padding-bottom: 8px;
     }
-    ha-switch {
+    mwc-switch {
       --mdc-theme-secondary: var(--switch-checked-color);
     }
-    paper-tab-bar {
+    mwc-tab-bar {
       border-bottom: 1px solid var(--divider-color);
     }
     .layout,

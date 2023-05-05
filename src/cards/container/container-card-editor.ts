@@ -78,36 +78,36 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
 
 
         return html`
-          <div class="card-config">
-            <div class="toolbar">
-              <paper-tabs
-                .activeIndex=${this._selectedTab}
-                @MDCTabBar:activated=${this._handleSwitchTab}
-              >
-                <paper-tab .label=${"Data"}>
-                    <button role="tab" aria-selected="true" tabindex="0" class="mdc-tab mdc-tab--active">
-                    <span class="mdc-tab__content">
-                        <span class="mdc-tab__text-label">Design</span>
-                    </span>
-                        <!-- <mwc-ripple primary=""></mwc-ripple> -->
-                    </button>
-                </paper-tab>
-                <paper-tab .label=${"Design"}>
+        <div class="card-config">
+          <div class="toolbar">
+            <mwc-tab-bar
+              .activeIndex=${this._selectedTab}
+              @MDCTabBar:activated=${this._handleSwitchTab}
+            >
+              <mwc-tab .label=${"Data"}>
                   <button role="tab" aria-selected="true" tabindex="0" class="mdc-tab mdc-tab--active">
-                    <span class="mdc-tab__content">
-                      <span class="mdc-tab__text-label">Section</span>
-                    </span>
-                      <!-- <mwc-ripple primary=""></mwc-ripple> -->
+                  <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label">Design</span>
+                  </span>
+                      <mwc-ripple primary=""></mwc-ripple>
                   </button>
-                </paper-tab>
-              </paper-tabs>
-            </div>
-            <div id="editor">
-              ${[this._renderDataEditor, this._renderDesignEditor][
-                this._selectedTab
-                ].bind(this)()}
-            </div>
+              </mwc-tab>
+              <mwc-tab .label=${"Design"}>
+                    <button role="tab" aria-selected="true" tabindex="0" class="mdc-tab mdc-tab--active">
+                      <span class="mdc-tab__content">
+                          <span class="mdc-tab__text-label">Section</span>
+                      </span>
+                        <mwc-ripple primary=""></mwc-ripple>
+                    </button>
+                </mwc-tab>
+            </mwc-tab-bar>
           </div>
+          <div id="editor">
+            ${[this._renderDataEditor, this._renderDesignEditor][
+              this._selectedTab
+              ].bind(this)()}
+          </div>
+        </div>
     `;
     }
 
@@ -124,7 +124,7 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
         return html`        
         <div class="card-config">
             <div id="editor">
-              <ha-select
+              <mwc-select
                 naturalMenuWidth
                 fixedMenuPosition
                 label="Entity (Required)"
@@ -134,29 +134,29 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
                 @closed=${(ev) => ev.stopPropagation()}
               >
                 ${entities.map((entity) => {
-            return html`<ha-list-item .value=${entity}>${entity}</ha-list-item>`;
+            return html`<mwc-list-item .value=${entity}>${entity}</mwc-list-item>`;
         })}
-              </ha-select>
-              <ha-textfield
+              </mwc-select>
+              <mwc-textfield
                 label="Name (Optional)"
                 .value=${this._name}
                 .configValue=${'name'}
                 @input=${this._valueChanged}
-              ></ha-textfield>
-              <ha-formfield .label=${`Toggle warning ${this._show_warning ? 'off' : 'on'}`}>
-                <ha-switch
+              ></mwc-textfield>
+              <mwc-formfield .label=${`Toggle warning ${this._show_warning ? 'off' : 'on'}`}>
+                <mwc-switch
                   .checked=${(this._show_warning)}
                   .configValue=${'show_warning'}
                   @change=${this._valueChanged}
-                ></ha-switch>
-              </ha-formfield>
-              <ha-formfield .label=${`Toggle error ${this._show_error ? 'off' : 'on'}`}>
-                <ha-switch
+                ></mwc-switch>
+              </mwc-formfield>
+              <mwc-formfield .label=${`Toggle error ${this._show_error ? 'off' : 'on'}`}>
+                <mwc-switch
                   .checked=${(this._show_error)}
                   .configValue=${'show_error'}
                   @change=${this._valueChanged}
-                ></ha-switch>
-              </ha-formfield>
+                ></mwc-switch>
+              </mwc-formfield>
             </div>
         </div>
     `;
@@ -205,18 +205,18 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
     }
 
     static styles: CSSResultGroup = css`
-    ha-select,
-    ha-textfield {
+    mwc-select,
+    mwc-textfield {
       margin-bottom: 16px;
       display: block;
     }
-    ha-formfield {
+    mwc-formfield {
       padding-bottom: 8px;
     }
-    ha-switch {
+    mwc-switch {
       --mdc-theme-secondary: var(--switch-checked-color);
     }
-    paper-tab-bar {
+    mwc-tab-bar {
       border-bottom: 1px solid var(--divider-color);
     }
     .layout,
