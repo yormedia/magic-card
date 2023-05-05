@@ -105,7 +105,7 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
           <div id="editor">
             ${[this._renderDataEditor, this._renderDesignEditor][
               this._selectedTab
-              ].bind(this)()}
+              ]}
           </div>
         </div>
     `;

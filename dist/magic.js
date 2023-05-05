@@ -1259,7 +1259,7 @@ const yn=f`.mdc-tab-bar{width:100%}.mdc-tab{height:48px}.mdc-tab--stacked{height
             </mwc-tab-bar>
           </div>
           <div id="editor">
-            ${[this._renderDataEditor,this._renderDesignEditor][this._selectedTab].bind(this)()}
+            ${[this._renderDataEditor,this._renderDesignEditor][this._selectedTab]}
           </div>
         </div>
     `:G``}_renderDataEditor(){if(!this.hass||!this._helpers)return G``;const t=Object.keys(this.hass.states);return Object.assign({},this._config),G`        
