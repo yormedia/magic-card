@@ -3,12 +3,12 @@ import { LitElement, html, TemplateResult, css, CSSResultGroup } from 'lit';
 import { MagicContainerCardConfig } from './container-card-config';
 
 import { customElement, property, state } from 'lit/decorators.js';
-// import { formfieldDefinition } from '../../../elements/formfield';
-// import { selectDefinition } from '../../../elements/select';
-// import { switchDefinition } from '../../../elements/switch';
-// import { textfieldDefinition } from '../../../elements/textfield';
-// import { tabDefinition } from '../../../elements/tab';
-// import { tabbarDefinition } from '../../../elements/tab-bar';
+import { formfieldDefinition } from '../../elements/formfield';
+import { selectDefinition } from '../../elements/select';
+import { switchDefinition } from '../../elements/switch';
+import { textfieldDefinition } from '../../elements/textfield';
+import { tabDefinition } from '../../elements/tab';
+import { tabbarDefinition } from '../../elements/tab-bar';
 
 import { card } from './container-card-constants';
 import { HomeAssistant, LovelaceCardEditor, fireEvent } from '../../ha';
@@ -27,14 +27,14 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
 
     private _initialized = false;
 
-    // static elementDefinitions = {
-    //     ...textfieldDefinition,
-    //     ...selectDefinition,
-    //     ...switchDefinition,
-    //     ...tabDefinition,
-    //     ...tabbarDefinition,
-    //     ...formfieldDefinition,
-    // };
+    static elementDefinitions = {
+        ...textfieldDefinition,
+        ...selectDefinition,
+        ...switchDefinition,
+        ...tabDefinition,
+        ...tabbarDefinition,
+        ...formfieldDefinition,
+    };
 
     _handleSwitchTab(ev: CustomEvent) {
         this._selectedTab = parseInt(ev.detail.index, 10);
