@@ -73,7 +73,7 @@ const ct=t=>e=>"function"==typeof e?((t,e)=>(customElements.define(t,e),e))(t,e)
                     <span class="mdc-tab__content">
                         <span class="mdc-tab__text-label">Design</span>
                     </span>
-                        <mwc-ripple primary=""></mwc-ripple>
+                        <!-- <mwc-ripple primary=""></mwc-ripple> -->
                     </button>
                 </paper-tab>
                 <paper-tab .label=${"Design"}>
@@ -81,7 +81,7 @@ const ct=t=>e=>"function"==typeof e?((t,e)=>(customElements.define(t,e),e))(t,e)
                     <span class="mdc-tab__content">
                       <span class="mdc-tab__text-label">Section</span>
                     </span>
-                      <mwc-ripple primary=""></mwc-ripple>
+                      <!-- <mwc-ripple primary=""></mwc-ripple> -->
                   </button>
                 </paper-tab>
               </paper-tabs>
@@ -102,7 +102,7 @@ const ct=t=>e=>"function"==typeof e?((t,e)=>(customElements.define(t,e),e))(t,e)
                 @selected=${this._valueChanged}
                 @closed=${t=>t.stopPropagation()}
               >
-                ${t.map((t=>I`<mwc-list-item .value=${t}>${t}</mwc-list-item>`))}
+                ${t.map((t=>I`<ha-list-item .value=${t}>${t}</ha-list-item>`))}
               </ha-select>
               <ha-textfield
                 label="Name (Optional)"

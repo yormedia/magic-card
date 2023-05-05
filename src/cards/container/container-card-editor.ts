@@ -89,7 +89,7 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
                     <span class="mdc-tab__content">
                         <span class="mdc-tab__text-label">Design</span>
                     </span>
-                        <mwc-ripple primary=""></mwc-ripple>
+                        <!-- <mwc-ripple primary=""></mwc-ripple> -->
                     </button>
                 </paper-tab>
                 <paper-tab .label=${"Design"}>
@@ -97,7 +97,7 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
                     <span class="mdc-tab__content">
                       <span class="mdc-tab__text-label">Section</span>
                     </span>
-                      <mwc-ripple primary=""></mwc-ripple>
+                      <!-- <mwc-ripple primary=""></mwc-ripple> -->
                   </button>
                 </paper-tab>
               </paper-tabs>
@@ -134,7 +134,7 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
                 @closed=${(ev) => ev.stopPropagation()}
               >
                 ${entities.map((entity) => {
-            return html`<mwc-list-item .value=${entity}>${entity}</mwc-list-item>`;
+            return html`<ha-list-item .value=${entity}>${entity}</ha-list-item>`;
         })}
               </ha-select>
               <ha-textfield
