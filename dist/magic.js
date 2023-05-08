@@ -93,7 +93,7 @@ const ct=t=>e=>"function"==typeof e?((t,e)=>(customElements.define(t,e),e))(t,e)
     `:I``}_renderDataEditor(){if(!this.hass||!this._helpers)return I``;const t=Object.keys(this.hass.states);return Object.assign({},this._config),I`        
         <div class="card-config">
             <div id="editor">
-              <magic-select
+              <mwc-select
                 naturalMenuWidth
                 fixedMenuPosition
                 label="Entity (Required)"
@@ -102,8 +102,8 @@ const ct=t=>e=>"function"==typeof e?((t,e)=>(customElements.define(t,e),e))(t,e)
                 @selected=${this._valueChanged}
                 @closed=${t=>t.stopPropagation()}
               >
-                <!-- ${t.map((t=>I`<mwc-list-item .value=${t} role="option"><span>${t}</span></mwc-list-item>`))} -->
-              </magic-select>
+                ${t.map((t=>I`<mwc-list-item .value=${t} role="option"><span>${t}</span></mwc-list-item>`))}
+              </mwc-select>
               <mwc-textfield
                 label="Name (Optional)"
                 .value=${this._name}

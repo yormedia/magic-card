@@ -19,6 +19,7 @@
   "dependencies": {
     "@formatjs/intl-utils": "^3.8.4",
     "@material/mwc-formfield": "^0.27.0",
+    "@material/mwc-list": "^0.27.0",
     "@material/mwc-select": "^0.27.0",
     "@material/mwc-switch": "^0.27.0",
     "@material/mwc-tab": "^0.27.0",

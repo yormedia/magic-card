@@ -7,6 +7,9 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { card } from './container-card-constants';
 import { HomeAssistant, LovelaceCardEditor, fireEvent } from '../../ha';
 import { MagicBaseElement } from '../../components/base-element';
+import { TextFieldBase } from '@material/mwc-textfield/mwc-textfield-base';
+import { SelectBase } from '@material/mwc-select/mwc-select-base';
+import { ListItemBase } from '@material/mwc-list/mwc-list-item-base';
 
 const DEFAULT_LAYOUT_TYPES = ["masonry", "sidebar", "panel"];
 
@@ -109,7 +112,7 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
         return html`        
         <div class="card-config">
             <div id="editor">
-              <magic-select
+              <mwc-select
                 naturalMenuWidth
                 fixedMenuPosition
                 label="Entity (Required)"
@@ -118,10 +121,10 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
                 @selected=${this._valueChanged}
                 @closed=${(ev) => ev.stopPropagation()}
               >
-                <!-- ${entities.map((entity) => {
+                ${entities.map((entity) => {
             return html`<mwc-list-item .value=${entity} role="option"><span>${entity}</span></mwc-list-item>`;
-        })} -->
-              </magic-select>
+        })}
+              </mwc-select>
               <mwc-textfield
                 label="Name (Optional)"
                 .value=${this._name}
