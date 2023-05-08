@@ -119,7 +119,7 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
                 @closed=${(ev) => ev.stopPropagation()}
               >
                 ${entities.map((entity) => {
-            return html`<mwc-list-item .value=${entity}><span>${entity}</span></mwc-list-item>`;
+            return html`<mwc-list-item .value=${entity} role="option"><span>${entity}</span></mwc-list-item>`;
         })}
               </mwc-select>
               <mwc-textfield

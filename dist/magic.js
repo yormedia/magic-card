@@ -102,7 +102,7 @@ const ct=t=>e=>"function"==typeof e?((t,e)=>(customElements.define(t,e),e))(t,e)
                 @selected=${this._valueChanged}
                 @closed=${t=>t.stopPropagation()}
               >
-                ${t.map((t=>I`<mwc-list-item .value=${t}><span>${t}</span></mwc-list-item>`))}
+                ${t.map((t=>I`<mwc-list-item .value=${t} role="option"><span>${t}</span></mwc-list-item>`))}
               </mwc-select>
               <mwc-textfield
                 label="Name (Optional)"
