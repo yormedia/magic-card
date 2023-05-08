@@ -109,7 +109,7 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
         return html`        
         <div class="card-config">
             <div id="editor">
-              <mwc-select
+              <magic-select
                 naturalMenuWidth
                 fixedMenuPosition
                 label="Entity (Required)"
@@ -118,10 +118,10 @@ export class MagicContainerCardEditor extends MagicBaseElement implements Lovela
                 @selected=${this._valueChanged}
                 @closed=${(ev) => ev.stopPropagation()}
               >
-                ${entities.map((entity) => {
+                <!-- ${entities.map((entity) => {
             return html`<mwc-list-item .value=${entity} role="option"><span>${entity}</span></mwc-list-item>`;
-        })}
-              </mwc-select>
+        })} -->
+              </magic-select>
               <mwc-textfield
                 label="Name (Optional)"
                 .value=${this._name}

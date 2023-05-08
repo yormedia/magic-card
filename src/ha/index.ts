@@ -15,6 +15,7 @@ export * from "./compute-state-domain";
 export * from "./const";
 export * from "./create-thing";
 export * from "./debounce";
+export * from "./render-status";
 export * from "./domain_icons";
 export * from "./evaluate-filter";
 export * from "./fire-event";
