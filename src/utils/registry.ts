@@ -7,6 +7,8 @@ export const bundle = {
   name: convertstring.capitalize(name), // Magic
   prefix: name.toLowerCase(), // magic
   version: version,
+  log: true,
+  loglevel: 9 // 9 = DEBUG, 3 = INFO, 2 = WARNING, 1 = ERROR
 };
 
 interface cardData {
