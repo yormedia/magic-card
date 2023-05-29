@@ -22,7 +22,7 @@ export function magiclogger(level: number, message: string){
     if (magicapp.loglevel >= level) {
 
       console.log(
-        `%c 🪄 ${magicapp.name} 🪄 %c ${magicapp.version} %c ${loglevel}: %c \t${logDateString}\t${message} `,
+        `%c 🪄 ${magicapp.name} 🪄 %c ${magicapp.version} %c ${loglevel}: %c ${logDateString} :: ${message} `,
         "color: black; font-weight: bold; background: orange",
         "color: orange; font-weight: bold; background: black",
         logColor,

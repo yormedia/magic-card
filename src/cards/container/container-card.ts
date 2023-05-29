@@ -28,20 +28,24 @@ import setupCustomlocalize from "../../localize";
 import { actionHandler } from "./container-action-handler-directive";
 import { magiclogger } from "../../utils/log";
 
-registerCustomCard(card.register);
+magiclogger(3, `${card.register.type}: Loading card module.`);
+magiclogger(9, `${card.register.type}: Registering card module.`);
 
+registerCustomCard(card.register);
 @customElement(card.register.type)
 export class MagicContainerCard extends MagicBaseCard implements LovelaceCard {
   @property({ attribute: false }) public hass!: HomeAssistant;
   @state() private config!: MagicContainerCardConfig;
 
   getCardSize(): number | Promise<number> {
+    magiclogger(9, `${card.register.type}: Setting card size.`);
     return card.size;
   }
 
   localize = setupCustomlocalize(this.hass);
 
   setConfig(config: MagicContainerCardConfig): void {
+    magiclogger(9, `${card.register.type}: Setting config.`);
     // TODO Check for required fields and that they are of the proper format
     if (!config) {
       throw new Error(this.localize("common.invalid_configuration"));
