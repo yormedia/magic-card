@@ -5,14 +5,14 @@ export function magiclogger(level: number, message: string){
     let logDate = new Date()
     let logDateString =  ("0" + logDate.getDate()).slice(-2) + "-" + ("0" + (logDate.getMonth()+1)).slice(-2) + "-" + logDate.getFullYear() + " " + 
       ("0" + logDate.getHours()).slice(-2) + ":" + ("0" + logDate.getMinutes()).slice(-2) + "." + ("0" + logDate.getSeconds()).slice(-2)
-    let loglevel = "#######"
+    let loglevel
     let logColor
     if (!magicapp.log) { return false}
     
-    if (level === 9) { loglevel.replace("#######", "DEBUG  ") }
-    if (level === 3) { loglevel.replace("#######", "INFO   ") }
-    if (level === 2) { loglevel.replace("#######", "WARNING") }
-    if (level === 1) { loglevel.replace("#######", "ERROR  ") }
+    if (level === 9) { loglevel = "DEBUG  " }
+    if (level === 3) { loglevel = "INFO   " }
+    if (level === 2) { loglevel = "WARNING" }
+    if (level === 1) { loglevel = "ERROR  " }
     
     if (level === 9) { logColor = "color: green; font-weight: bold; background: transparent" }
     if (level === 3) { logColor = "color: white; font-weight: bold; background: transparent" }
