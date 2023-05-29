@@ -30,10 +30,11 @@ export function magiclogger(level: number, message: string){
     if (bundle.loglevel <= level) {
 
       console.log(
-        `%c 🪄 ${bundle.name} 🪄 %c ${bundle.version} %c ${level}:\t %c ${logDateString}\t${message} `,
+        `%c 🪄 ${bundle.name} 🪄 %c ${bundle.version} %c ${loglevel}: %c \t${logDateString}\t${message} `,
         "color: black; font-weight: bold; background: orange",
         "color: orange; font-weight: bold; background: black",
-        logColor
+        logColor,
+        "color: white; font-weight: bold; background: transparent"
       )
     }
     return true
