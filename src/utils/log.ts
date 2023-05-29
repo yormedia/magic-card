@@ -4,7 +4,7 @@ export function magiclogger(level: number, message: string){
   /* eslint no-console: 0 */
     let logDate = new Date()
     let logDateString =  ("0" + logDate.getDate()).slice(-2) + "-" + ("0"+(logDate.getMonth()+1)).slice(-2) + "-" +
-    logDate.getFullYear() + " " + ("0" + logDate.getHours()).slice(-2) + ":" + ("0" + logDate.getMinutes()).slice(-2) + ("0" + logDate.getSeconds()).slice(-2)
+    logDate.getFullYear() + " " + ("0" + logDate.getHours()).slice(-2) + ":" + ("0" + logDate.getMinutes()).slice(-2) + "." + ("0" + logDate.getSeconds()).slice(-2)
     let loglevel
     let logColor
     if (!bundle.log) { return false}
@@ -18,7 +18,8 @@ export function magiclogger(level: number, message: string){
     if (level === 3) { logColor = "color: white; font-weight: bold; background: transparent" }
     if (level === 2) { logColor = "color: orange; font-weight: bold; background: transparent" }
     if (level === 1) { logColor = "color: red; font-weight: bold; background: transparent" }
-    if (bundle.loglevel <= level) {
+
+    if (bundle.loglevel >= level) {
 
       console.log(
         `%c 🪄 ${bundle.name} 🪄 %c ${bundle.version} %c ${loglevel}: %c \t${logDateString}\t${message} `,
