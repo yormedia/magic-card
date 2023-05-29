@@ -3,7 +3,7 @@ import { ymString } from "./string";
 
 let convertstring = new ymString();
 
-export const bundle = {
+export const magicapp = {
   name: convertstring.capitalize(name), // Magic
   prefix: name.toLowerCase(), // magic
   version: version,
@@ -19,13 +19,13 @@ interface cardData {
 
 export function getCardData(carddata: cardData) {
   return {
-    bundle: {
-      name: bundle.name,
-      prefix: bundle.prefix
+    appdata: {
+      name: magicapp.name,
+      prefix: magicapp.prefix
     },
     register: {
-      type: `${bundle.prefix}-${carddata.name.toLowerCase()}-card`, // magic-<cardname>-card
-      name: `${bundle.name} ${convertstring.capitalize(carddata.name)} Card`, // Magic <Cardname> Card
+      type: `${magicapp.prefix}-${carddata.name.toLowerCase()}-card`, // magic-<cardname>-card
+      name: `${magicapp.name} ${convertstring.capitalize(carddata.name)} Card`, // Magic <Cardname> Card
       description:
         carddata.description ||
         "This card is part of the Magic Card selection.",
@@ -33,7 +33,7 @@ export function getCardData(carddata: cardData) {
     size: carddata.size || 1,
     editor: {
       type: `${carddata.name.toLowerCase()}-card-editor`, // <cardname>-card-editor
-      prefixedtype: `${bundle.prefix}-${carddata.name.toLowerCase()}-card-editor`, // magic-<cardname>-card-editor
+      prefixedtype: `${magicapp.prefix}-${carddata.name.toLowerCase()}-card-editor`, // magic-<cardname>-card-editor
       file: `./${carddata.name.toLowerCase()}-card-editor`, // ./<cardname>-card-editor
     },
   };
