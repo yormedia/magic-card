@@ -8,20 +8,11 @@ export function magiclogger(level: number, message: string){
     let loglevel
     let logColor
     if (!bundle.log) { return false}
-    switch (level) {
-      case 9:
-        loglevel = "DEBUG";
-        break;
-      case 3:
-        loglevel = "INFO";
-        break;
-      case 2:
-        loglevel = "WARNING";
-        break;
-      case 1:
-        loglevel = "ERROR";
-        break;
-    }
+    
+    if (level === 9) { loglevel = "DEBUG" }
+    if (level === 3) { loglevel = "INFO" }
+    if (level === 2) { loglevel = "WARNING" }
+    if (level === 1) { loglevel = "ERROR" }
     
     if (level === 9) { logColor = "color: green; font-weight: bold; background: transparent" }
     if (level === 3) { logColor = "color: white; font-weight: bold; background: transparent" }
