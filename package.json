@@ -1,6 +1,6 @@
 {
   "name": "magic",
-  "version": "1.0.0k",
+  "version": "1.0.0l",
   "description": "Home Assistant Magic Card",
   "main": "index.js",
   "scripts": {
