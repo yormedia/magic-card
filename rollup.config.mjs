@@ -6,6 +6,7 @@ import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import serve from "rollup-plugin-serve";
 import ignore from "./rollup-plugins/rollup-ignore-plugin.js";
+import copy from "rollup-plugin-copy"
 
 const IGNORED_FILES = [
   // "@material/mwc-notched-outline/mwc-notched-outline.js",
@@ -33,6 +34,10 @@ const plugins = [
   ignore({
     files: IGNORED_FILES.map((file) => require.resolve(file)),
   }),
+  copy({
+    targets: [
+      { src: './src/log.json', dest: './dist' }
+  ]}),
   typescript({
     declaration: false,
   }),

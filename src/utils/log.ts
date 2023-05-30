@@ -1,5 +1,7 @@
 import { magicapp } from "./registry";
 
+const logSettings = require("log.json");
+
 export function magiclogger(level: number, message: string){
   /* eslint no-console: 0 */
     let logDate = new Date()
@@ -7,7 +9,7 @@ export function magiclogger(level: number, message: string){
       ("0" + logDate.getHours()).slice(-2) + ":" + ("0" + logDate.getMinutes()).slice(-2) + "." + ("0" + logDate.getSeconds()).slice(-2)
     let loglevel
     let logColor
-    if (!magicapp.log) { return false}
+    if (!logSettings.log) { return false}
     
     if (level === 9) { loglevel = "DEBUG  " }
     if (level === 3) { loglevel = "INFO   " }
@@ -19,7 +21,7 @@ export function magiclogger(level: number, message: string){
     if (level === 2) { logColor = "color: orange; font-weight: bold; background: transparent" }
     if (level === 1) { logColor = "color: red; font-weight: bold; background: transparent" }
 
-    if (magicapp.loglevel >= level) {
+    if (logSettings.loglevel >= level) {
 
       console.log(
         `%c 🪄 ${magicapp.name} 🪄 %c ${magicapp.version} %c ${loglevel}: %c ${logDateString} :: ${message} `,
