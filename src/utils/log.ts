@@ -1,6 +1,5 @@
 import { magicapp } from "./registry";
-
-const logSettings = require("log.json");
+import * as logSettings from "./log.json";
 
 export function magiclogger(level: number, message: string){
   /* eslint no-console: 0 */

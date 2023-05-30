@@ -36,7 +36,7 @@ const plugins = [
   }),
   copy({
     targets: [
-      { src: './src/log.json', dest: './dist' }
+      { src: './src/utils/log.json', dest: './dist' }
   ]}),
   typescript({
     declaration: false,
