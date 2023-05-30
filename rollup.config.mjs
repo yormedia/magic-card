@@ -16,6 +16,7 @@ const IGNORED_FILES = [
   // "@material/mwc-menu/mwc-menu.js",
   // "@material/mwc-menu/mwc-menu-surface.js",
   // "@material/mwc-icon/mwc-icon.js",
+  "./dist/log.json"
 ];
 
 const dev = process.env.ROLLUP_WATCH;
