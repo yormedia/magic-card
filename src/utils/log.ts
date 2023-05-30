@@ -1,8 +1,12 @@
 import { magicapp } from "./registry";
 import * as fs from "fs";
 
-let logSettingsFile = fs.readFileSync("./log.json", 'utf-8');
-let logSettings = JSON.parse(logSettingsFile);
+let logSettings = {log: false, loglevel: 0};
+
+if (fs.existsSync(__dirname + "/log.json")) {
+  let logSettingsFile = fs.readFileSync(__dirname + "/log.json", 'utf-8');
+  logSettings = JSON.parse(logSettingsFile);
+}
 
 export function magiclogger(level: number, message: string){
     let logDate = new Date()
