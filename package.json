@@ -1,6 +1,6 @@
 {
   "name": "magic",
-  "version": "1.0.0i",
+  "version": "1.0.0j",
   "description": "Home Assistant Magic Card",
   "main": "index.js",
   "scripts": {
@@ -46,7 +46,6 @@
     "@types/color": "^3.0.3",
     "@types/hammerjs": "^2.0.41",
     "eslint": "^8.31.0",
-    "fs": "^0.0.1-security",
     "prettier": "^2.8.2",
     "rollup": "^3.9.1",
     "rollup-plugin-copy": "^3.4.0",
