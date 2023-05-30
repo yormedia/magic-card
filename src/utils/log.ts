@@ -1,8 +1,10 @@
 import { magicapp } from "./registry";
-const logSettings = require("./log.json");
+import * as fs from "fs";
+
+let logSettingsFile = fs.readFileSync("./log.json", 'utf-8');
+let logSettings = JSON.parse(logSettingsFile);
 
 export function magiclogger(level: number, message: string){
-  /* eslint no-console: 0 */
     let logDate = new Date()
     let logDateString =  ("0" + logDate.getDate()).slice(-2) + "-" + ("0" + (logDate.getMonth()+1)).slice(-2) + "-" + logDate.getFullYear() + " " + 
       ("0" + logDate.getHours()).slice(-2) + ":" + ("0" + logDate.getMinutes()).slice(-2) + "." + ("0" + logDate.getSeconds()).slice(-2)
