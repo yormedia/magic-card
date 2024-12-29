@@ -8,7 +8,7 @@ import { MagicCardConfig } from "../types/types";
 import { getCardData } from "../global/app";
 import { localize } from "../functions/localize";
 
-const card = getCardData("section");
+const card = getCardData("");
 
 registerCustomCard({
     type: card.type,

@@ -183,7 +183,7 @@ function localize(string, search = "", replace = "") {
     return translated;
 }
 
-const card = getCardData("section");
+const card = getCardData("");
 registerCustomCard({
     type: card.type,
     name: card.name,
