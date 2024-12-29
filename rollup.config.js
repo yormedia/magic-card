@@ -35,7 +35,7 @@ export default [
     {
         input: "src/index.ts",
         output: {
-            file: "dist/magic-cards.js",
+            file: "dist/index.js",
             name: "MagicCard",
             format: "es",
         },
