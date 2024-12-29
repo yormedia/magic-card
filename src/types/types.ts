@@ -1,15 +1,23 @@
+import { LovelaceCardConfig, ActionConfig } from "custom-card-helpers";
 export interface MagicCardConfig {
-  title?: string;
-  entity: string;
-  show_name: boolean;
-  show_state: boolean;
-  features: FeatureConfig[];
+    entity?: string;
+    title?: string;
+    show: ShowConfig;
+    test_gui?: boolean;
+    tap_action?: ActionConfig;
+    hold_action?: ActionConfig;
+    double_tap_action?: ActionConfig;
 }
 
 export interface FeatureConfig {
-  name: string;
-  entity_id: string;
-  service: string;
-  show_state: boolean;
-  service_data?: Record<string, any>;
+    name: string;
+    entity_id: string;
+    service: string;
+    show_state: boolean;
+    service_data?: Record<string, any>;
+}
+
+export interface ShowConfig {
+    name: boolean;
+    state: boolean;
 }

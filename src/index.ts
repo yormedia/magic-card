@@ -1,12 +1,4 @@
-import { MagicCard } from "./magic-card";
-import { MagicCardEditor } from "./magic-card-editor";
+import { appInfo } from "./global/app";
+export { MagicCard } from "./card/magic-card";
 
-customElements.define("magic-card", MagicCard);
-customElements.define("magic-card-editor", MagicCardEditor);
-
-window.customCards = window.customCards || [];
-window.customCards.push({
-    type: "magic-card",
-    name: "Magic Card",
-    description: "A magical custom card with feature rows",
-});
+console.info(`%c 🪄 ${appInfo.name} 🪄 %c ${appInfo.version}`, "color: black; font-weight: bold; background: orange");
