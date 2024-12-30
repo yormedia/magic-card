@@ -1,1 +1,1 @@
-export { M as MagicCard } from './index-35a754e7.js';
+export { M as MagicCard } from './index-fb6f5332.js';

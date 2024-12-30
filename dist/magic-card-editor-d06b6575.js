@@ -1,37 +1,28 @@
-import { LitElement, html, TemplateResult, css, CSSResultGroup } from "lit";
-import { HomeAssistant, fireEvent, LovelaceCardEditor } from "custom-card-helpers";
+import { n, S, g as getCardData, x, i, _ as __decorate, e as e$1, s } from './index-fb6f5332.js';
 
-import { getCardData } from "../global/app";
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */function t$1(t){return n({...t,state:!0})}
+
+var t,r;!function(e){e.language="language",e.system="system",e.comma_decimal="comma_decimal",e.decimal_comma="decimal_comma",e.space_comma="space_comma",e.none="none";}(t||(t={})),function(e){e.language="language",e.system="system",e.am_pm="12",e.twenty_four="24";}(r||(r={}));var ne=function(e,t,r,n){n=n||{},r=null==r?{}:r;var i=new Event(t,{bubbles:void 0===n.bubbles||n.bubbles,cancelable:Boolean(n.cancelable),composed:void 0===n.composed||n.composed});return i.detail=r,e.dispatchEvent(i),i};
+
+/**
+ * @license
+ * Copyright 2021 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */function e(e){return class extends e{createRenderRoot(){const e=this.constructor,{registry:s,elementDefinitions:n,shadowRootOptions:o}=e;n&&!s&&(e.registry=new CustomElementRegistry,Object.entries(n).forEach((([t,s])=>e.registry.define(t,s))));const i=this.renderOptions.creationScope=this.attachShadow({...o,customElements:e.registry});return S(i,this.constructor.elementStyles),i}}}
+
 const card = getCardData();
-
-import { MagicCardConfig } from "../types/types";
-import { customElement, property, state } from "lit/decorators";
-import { ScopedRegistryHost } from "@lit-labs/scoped-registry-mixin/scoped-registry-mixin";
-
-// import { formfieldDefinition } from "../../../elements/formfield";
-// import { selectDefinition } from "../../../elements/select";
-// import { switchDefinition } from "../../../elements/switch";
-// import { textfieldDefinition } from "../../../elements/textfield";
-// import { tabDefinition } from "../../../elements/tab";
-// import { tabbarDefinition } from '../../../elements/tab-bar';
-
-import { localize } from "../functions/localize";
-
 // const DEFAULT_LAYOUT_TYPES = ["masonry", "sidebar", "panel", "section"];
-
-@customElement(card.editor.type)
-export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
-    @property({ attribute: false }) public hass?: HomeAssistant;
-
-    @state() private config?: MagicCardConfig;
-
-    @state() private _helpers?: any;
-
-    @state() _selectedTab = 0;
-    @state() _selectedCard = 0;
-
-    private _initialized = false;
-
+let MagicCardEditor = class MagicCardEditor extends e(s) {
+    constructor() {
+        super(...arguments);
+        this._selectedTab = 0;
+        this._selectedCard = 0;
+        this._initialized = false;
+    }
     // static elementDefinitions = {
     //     ...textfieldDefinition,
     //     ...selectDefinition,
@@ -40,47 +31,40 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
     //     // ...tabbarDefinition,
     //     ...formfieldDefinition,
     // };
-
-    _handleSwitchTab(ev: CustomEvent) {
+    _handleSwitchTab(ev) {
         this._selectedTab = parseInt(ev.detail.index, 10);
     }
-
-    public setConfig(config: MagicCardConfig): void {
+    setConfig(config) {
         this.config = config;
-
         this.loadCardHelpers();
     }
-
-    protected shouldUpdate(): boolean {
+    shouldUpdate() {
         if (!this._initialized) {
             this._initialize();
         }
-
         return true;
     }
-
-    get _name(): string {
-        return this.config?.title || "";
+    get _name() {
+        var _a;
+        return ((_a = this.config) === null || _a === void 0 ? void 0 : _a.title) || "";
     }
-
-    get _entity(): string {
-        return this.config?.entity || "";
+    get _entity() {
+        var _a;
+        return ((_a = this.config) === null || _a === void 0 ? void 0 : _a.entity) || "";
     }
-
-    get _show_warning(): boolean {
-        return this.config?.show.name || false;
+    get _show_warning() {
+        var _a;
+        return ((_a = this.config) === null || _a === void 0 ? void 0 : _a.show.name) || false;
     }
-
-    get _show_error(): boolean {
-        return this.config?.show.state || false;
+    get _show_error() {
+        var _a;
+        return ((_a = this.config) === null || _a === void 0 ? void 0 : _a.show.state) || false;
     }
-
-    protected render(): TemplateResult | void {
+    render() {
         if (!this.hass || !this._helpers) {
-            return html``;
+            return x ``;
         }
-
-        return html`
+        return x `
             <div class="card-config">
                 <div class="toolbar">
                     <md-tab-bar .activeIndex=${this._selectedTab} @MDCTabBar:activated=${this._handleSwitchTab}>
@@ -106,18 +90,14 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
             </div>
         `;
     }
-
     _renderDataEditor() {
         // You can restrict on domain type
         if (!this.hass || !this._helpers) {
-            return html``;
+            return x ``;
         }
-
         const entities = Object.keys(this.hass.states);
-        const data = {
-            ...this.config,
-        };
-        return html`
+        Object.assign({}, this.config);
+        return x `
             <div class="card-config">
                 <div id="editor">
                     <md-select
@@ -130,8 +110,8 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
                         @closed=${(ev) => ev.stopPropagation()}
                     >
                         ${entities.map((entity) => {
-                            return html`<md-list-item .value=${entity}>${entity}</md-list-item>`;
-                        })}
+            return x `<md-list-item .value=${entity}>${entity}</md-list-item>`;
+        })}
                     </md-select>
                     <md-textfield label="Name (Optional)" .value=${this._name} .configValue=${"name"} @input=${this._valueChanged}></md-textfield>
                     <md-formfield .label=${`Toggle warning ${this._show_warning ? "off" : "on"}`}>
@@ -144,25 +124,24 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
             </div>
         `;
     }
-
     _renderDesignEditor() {
-        const selected = this._selectedCard;
+        this._selectedCard;
         // const numcards = this.config.cards.length;
-        return html` <p>Hello I am the design tab.</p> `;
+        return x ` <p>Hello I am the design tab.</p> `;
     }
-
-    private _initialize(): void {
-        if (this.hass === undefined) return;
-        if (this.config === undefined) return;
-        if (this._helpers === undefined) return;
+    _initialize() {
+        if (this.hass === undefined)
+            return;
+        if (this.config === undefined)
+            return;
+        if (this._helpers === undefined)
+            return;
         this._initialized = true;
     }
-
-    private async loadCardHelpers(): Promise<void> {
-        this._helpers = await (window as any).loadCardHelpers();
+    async loadCardHelpers() {
+        this._helpers = await window.loadCardHelpers();
     }
-
-    private _valueChanged(ev): void {
+    _valueChanged(ev) {
         if (!this.config || !this.hass) {
             return;
         }
@@ -172,20 +151,18 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
         }
         if (target.configValue) {
             if (target.value === "") {
-                const tmpConfig = { ...this.config };
+                const tmpConfig = Object.assign({}, this.config);
                 delete tmpConfig[target.configValue];
                 this.config = tmpConfig;
-            } else {
-                this.config = {
-                    ...this.config,
-                    [target.configValue]: target.checked !== undefined ? target.checked : target.value,
-                };
+            }
+            else {
+                this.config = Object.assign(Object.assign({}, this.config), { [target.configValue]: target.checked !== undefined ? target.checked : target.value });
             }
         }
-        fireEvent(this, "config-changed", { config: this.config });
+        ne(this, "config-changed", { config: this.config });
     }
-
-    static styles: CSSResultGroup = css`
+};
+MagicCardEditor.styles = i `
         md-select,
         md-textfield {
             margin-bottom: 16px;
@@ -217,4 +194,23 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
             flex-grow: 1;
         }
     `;
-}
+__decorate([
+    n({ attribute: false })
+], MagicCardEditor.prototype, "hass", void 0);
+__decorate([
+    t$1()
+], MagicCardEditor.prototype, "config", void 0);
+__decorate([
+    t$1()
+], MagicCardEditor.prototype, "_helpers", void 0);
+__decorate([
+    t$1()
+], MagicCardEditor.prototype, "_selectedTab", void 0);
+__decorate([
+    t$1()
+], MagicCardEditor.prototype, "_selectedCard", void 0);
+MagicCardEditor = __decorate([
+    e$1(card.editor.type)
+], MagicCardEditor);
+
+export { MagicCardEditor };

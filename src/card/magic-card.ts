@@ -25,7 +25,8 @@ export class MagicCard extends LitElement {
 
     //   @property() protected _card?: LovelaceCard;
     @property() private config?: MagicCardConfig;
-    private hass?: HomeAssistant;
+    @property({ attribute: false }) public hass!: HomeAssistant;
+    // private hass?: HomeAssistant;
 
     static get properties() {
         return {

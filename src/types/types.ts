@@ -1,6 +1,6 @@
 import { LovelaceCardConfig, ActionConfig } from "custom-card-helpers";
 export interface MagicCardConfig {
-    entity?: string;
+    entity: string;
     title?: string;
     show: ShowConfig;
     test_gui?: boolean;
