@@ -110,17 +110,11 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
         return html`
             <div class="card-config">
                 <div id="editor">
-                    <md-filled-select required
-                        label="Entity (Required)"
-                        .configValue=${"entity"}
-                        .value=${this._entity}
-                        @selected=${this._valueChanged}
-                        @closed=${(ev) => ev.stopPropagation()}
-                    >
+                    <md-filled-select required label="Entity (Required)" .configValue=${"entity"} .value=${this._entity} @selected=${this._valueChanged} @closed=${(ev) => ev.stopPropagation()}>
                         ${entities.map((entity) => {
                             return html`<md-select-option .value=${entity}>${entity}</md-select-option>`;
                         })}
-                    </md-filles-select>
+                    </md-filled-select>
                     <md-textfield label="Name (Optional)" .value=${this._name} .configValue=${"name"} @input=${this._valueChanged}></md-textfield>
                     <md-formfield .label=${`Toggle warning ${this._show_name ? "off" : "on"}`}>
                         <md-switch .checked=${this._show_name} .configValue=${"show_name"} @change=${this._valueChanged}></md-switch>

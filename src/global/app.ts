@@ -1,10 +1,10 @@
-// import { name, version } from "../../package.json";
+import { name, version } from "../../package.json";
 import { capitalize } from "../functions/string";
 
 export const appInfo = {
-    name: "Magic", //capitalize(name),
-    prefix: "magic", //name.toLowerCase(),
-    version: "1.0.0b1", //version,
+    name: capitalize(name),
+    prefix: name.toLowerCase(),
+    version: version, //version,
 };
 
 export function getCardData(cardType: string = "") {
