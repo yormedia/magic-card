@@ -1,4 +1,4 @@
-# Magic Cards 1.0.0b26 by [@yormedia](https://www.github.com/yormedia)
+# Magic Cards 1.0.0b27 by [@yormedia](https://www.github.com/yormedia)
 
 A community driven magic of best practices for Home Assistant Lovelace custom cards
 
