@@ -1,6 +1,6 @@
 {
     "name": "magic",
-    "version": "1.0.0b28",
+    "version": "1.0.0b29",
     "description": "Dashboard Magic",
     "keywords": [
         "home-assistant",
@@ -20,6 +20,7 @@
         "@babel/core": "^7.8.7",
         "@babel/plugin-proposal-class-properties": "^7.8.3",
         "@babel/plugin-proposal-decorators": "^7.8.3",
+        "@dermotduffy/custom-card-helpers": "^1.9.1",
         "@material/web": "^2.2.0",
         "@rollup/plugin-babel": "^5.3.1",
         "@rollup/plugin-commonjs": "^16.0.0",

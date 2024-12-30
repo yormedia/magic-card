@@ -41,7 +41,7 @@ export class MagicCard extends LitElement {
 
     static getStubConfig(): MagicCardConfig {
         return {
-            title: "Magic Card",
+            name: "Magic Card",
             entity: "",
             show: {
                 name: true,
@@ -78,7 +78,7 @@ export class MagicCard extends LitElement {
         }
 
         return html`
-            <ha-card header="${this.config.title || ""}">
+            <ha-card header="${this.config.name || ""}">
                 <div class="card-content">
                     ${this.config.show.name ? html` <div class="name">${state.attributes.friendly_name || state.entity_id}</div> ` : ""}
                     ${this.config.show.state ? html` <div class="state">${state.state}</div> ` : ""}
