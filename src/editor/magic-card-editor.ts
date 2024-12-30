@@ -73,24 +73,24 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
         return html`
             <div class="card-config">
                 <div class="toolbar">
-                    <md-tab-bar .activeIndex=${this._selectedTab} @mdTabBar:activated=${this._handleSwitchTab}>
-                        <md-tab .label=${"Data"}>
-                            <button role="tab" aria-selected="true" tabindex="0" class="md-tab md-tab--active">
-                                <span class="md-tab__content">
-                                    <span class="md-tab__text-label">Design</span>
+                    <mwc-tab-bar .activeIndex=${this._selectedTab} @mdTabBar:activated=${this._handleSwitchTab}>
+                        <mwc-tab .label=${"Data"}>
+                            <button role="tab" aria-selected="true" tabindex="0" class="mwc-tab mwc-tab--active">
+                                <span class="mwc-tab__content">
+                                    <span class="mwc-tab__text-label">Design</span>
                                 </span>
-                                <md-ripple primary=""></md-ripple>
+                                <mwc-ripple primary=""></mwc-ripple>
                             </button>
-                        </md-tab>
-                        <md-tab .label=${"Design"}>
-                            <button role="tab" aria-selected="true" tabindex="0" class="md-tab md-tab--active">
-                                <span class="md-tab__content">
-                                    <span class="md-tab__text-label">Section</span>
+                        </mwc-tab>
+                        <mwc-tab .label=${"Design"}>
+                            <button role="tab" aria-selected="true" tabindex="0" class="mwc-tab mwc-tab--active">
+                                <span class="mwc-tab__content">
+                                    <span class="mwc-tab__text-label">Section</span>
                                 </span>
-                                <md-ripple primary=""></md-ripple>
+                                <mwc-ripple primary=""></mwc-ripple>
                             </button>
-                        </md-tab>
-                    </md-tab-bar>
+                        </mwc-tab>
+                    </mwc-tab-bar>
                 </div>
                 <div id="editor">${[this._renderDataEditor, this._renderDesignEditor][this._selectedTab].bind(this)()}</div>
             </div>
@@ -110,18 +110,26 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
         return html`
             <div class="card-config">
                 <div id="editor">
-                    <md-filled-select required label="Entity (Required)" .configValue=${"entity"} .value=${this._entity} @selected=${this._valueChanged} @closed=${(ev) => ev.stopPropagation()}>
+                    <mwc-select
+                        naturalMenuWidth
+                        fixedMenuPosition
+                        label="Entity (Required)"
+                        .configValue=${"entity"}
+                        .value=${this._entity}
+                        @selected=${this._valueChanged}
+                        @closed=${(ev) => ev.stopPropagation()}
+                    >
                         ${entities.map((entity) => {
-                            return html`<md-select-option .value=${entity}>${entity}</md-select-option>`;
+                            return html`<mwc-list-item .value=${entity}>${entity}</mwc-list-item>`;
                         })}
-                    </md-filled-select>
-                    <md-textfield label="Name (Optional)" .value=${this._name} .configValue=${"name"} @input=${this._valueChanged}></md-textfield>
-                    <md-formfield .label=${`Toggle warning ${this._show_name ? "off" : "on"}`}>
-                        <md-switch .checked=${this._show_name} .configValue=${"show_name"} @change=${this._valueChanged}></md-switch>
-                    </md-formfield>
-                    <md-formfield .label=${`Toggle error ${this._show_state ? "off" : "on"}`}>
-                        <md-switch .checked=${this._show_state} .configValue=${"show_state"} @change=${this._valueChanged}></md-switch>
-                    </md-formfield>
+                    </mwc-select>
+                    <mwc-textfield label="Name (Optional)" .value=${this._name} .configValue=${"name"} @input=${this._valueChanged}></mwc-textfield>
+                    <mwc-formfield .label=${`Toggle warning ${this._show_name ? "off" : "on"}`}>
+                        <mwc-switch .checked=${this._show_name} .configValue=${"show_name"} @change=${this._valueChanged}></mwc-switch>
+                    </mwc-formfield>
+                    <mwc-formfield .label=${`Toggle error ${this._show_state ? "off" : "on"}`}>
+                        <mwc-switch .checked=${this._show_state} .configValue=${"show_state"} @change=${this._valueChanged}></mwc-switch>
+                    </mwc-formfield>
                 </div>
             </div>
         `;
@@ -168,18 +176,18 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
     }
 
     static styles: CSSResultGroup = css`
-        md-select,
-        md-textfield {
+        mwc-select,
+        mwc-textfield {
             margin-bottom: 16px;
             display: block;
         }
-        md-formfield {
+        mwc-formfield {
             padding-bottom: 8px;
         }
-        md-switch {
-            --md-theme-secondary: var(--switch-checked-color);
+        mwc-switch {
+            --mwc-theme-secondary: var(--switch-checked-color);
         }
-        md-tab-bar {
+        mwc-tab-bar {
             border-bottom: 1px solid var(--divider-color);
         }
         .layout,
