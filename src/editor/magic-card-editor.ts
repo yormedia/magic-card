@@ -71,7 +71,7 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
         }
 
         return html`
-            <div class="card-config">
+            <ha-form .hass=${this.hass} .data=${this.config} @value-changed=${this._valueChanged}>
                 <div class="toolbar">
                     <mwc-tab-bar .activeIndex=${this._selectedTab} @mdTabBar:activated=${this._handleSwitchTab}>
                         <mwc-tab .label=${"Data"}>
@@ -92,8 +92,8 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
                         </mwc-tab>
                     </mwc-tab-bar>
                 </div>
-                <ha-form id="editor">${[this._renderDataEditor, this._renderDesignEditor][this._selectedTab].bind(this)()}</ha-form>
-            </div>
+                <div id="editor">${[this._renderDataEditor, this._renderDesignEditor][this._selectedTab].bind(this)()}</div>
+            </ha-form>
         `;
     }
 
@@ -108,30 +108,30 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
             ...this.config,
         };
         return html`
-            <div class="card-config">
-                <div id="editor">
-                    <mwc-select
-                        naturalMenuWidth
-                        fixedMenuPosition
-                        label="Entity (Required)"
-                        .configValue=${"entity"}
-                        .value=${this._entity}
-                        @selected=${this._valueChanged}
-                        @closed=${(ev) => ev.stopPropagation()}
-                    >
-                        ${entities.map((entity) => {
-                            return html`<mwc-list-item .value=${entity}>${entity}</mwc-list-item>`;
-                        })}
-                    </mwc-select>
-                    <mwc-textfield label="Name (Optional)" .value=${this._name} .configValue=${"name"} @input=${this._valueChanged}></mwc-textfield>
-                    <mwc-formfield .label=${`Toggle warning ${this._show_name ? "off" : "on"}`}>
-                        <mwc-switch .checked=${this._show_name} .configValue=${"show_name"} @change=${this._valueChanged}></mwc-switch>
-                    </mwc-formfield>
-                    <mwc-formfield .label=${`Toggle error ${this._show_state ? "off" : "on"}`}>
-                        <mwc-switch .checked=${this._show_state} .configValue=${"show_state"} @change=${this._valueChanged}></mwc-switch>
-                    </mwc-formfield>
-                </div>
-            </div>
+            <!-- <div class="card-config">
+                <div id="editor"> -->
+            <mwc-select
+                naturalMenuWidth
+                fixedMenuPosition
+                label="Entity (Required)"
+                .configValue=${"entity"}
+                .value=${this._entity}
+                @selected=${this._valueChanged}
+                @closed=${(ev) => ev.stopPropagation()}
+            >
+                ${entities.map((entity) => {
+                    return html`<mwc-list-item .value=${entity}>${entity}</mwc-list-item>`;
+                })}
+            </mwc-select>
+            <mwc-textfield label="Name (Optional)" .value=${this._name} .configValue=${"name"} @input=${this._valueChanged}></mwc-textfield>
+            <mwc-formfield .label=${`Toggle warning ${this._show_name ? "off" : "on"}`}>
+                <mwc-switch .checked=${this._show_name} .configValue=${"show_name"} @change=${this._valueChanged}></mwc-switch>
+            </mwc-formfield>
+            <mwc-formfield .label=${`Toggle error ${this._show_state ? "off" : "on"}`}>
+                <mwc-switch .checked=${this._show_state} .configValue=${"show_state"} @change=${this._valueChanged}></mwc-switch>
+            </mwc-formfield>
+            <!-- </div>
+            </div> -->
         `;
     }
 
