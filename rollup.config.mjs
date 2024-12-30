@@ -1,7 +1,7 @@
 import typescript from "rollup-plugin-typescript2";
 import commonjs from "rollup-plugin-commonjs";
 import nodeResolve from "@rollup/plugin-node-resolve";
-import babel from "@rollup/plugin-babel";
+import { getBabelInputPlugin, getBabelOutputPlugin } from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import serve from "rollup-plugin-serve";
 import json from "@rollup/plugin-json";
@@ -19,7 +19,30 @@ const serveopts = {
     },
 };
 
-const plugins = [nodeResolve({}), commonjs(), typescript(), json(), dev && serve(serveopts), !dev && terser()];
+const plugins = [
+    nodeResolve({}),
+    commonjs(),
+    getBabelInputPlugin({
+        babelHelpers: "bundled",
+    }),
+    getBabelOutputPlugin({
+        presets: [
+            [
+                "@babel/preset-env",
+                {
+                    modules: false,
+                },
+            ],
+        ],
+        compact: true,
+    }),
+    typescript({
+        declaration: false,
+    }),
+    json(),
+    dev && serve(serveopts),
+    !dev && terser(),
+];
 
 export default [
     {
@@ -28,6 +51,7 @@ export default [
             dir: "dist",
             name: "MagicCard",
             format: "es",
+            inlineDynamicImports: true,
         },
         plugins: [...plugins],
     },

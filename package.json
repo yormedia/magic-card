@@ -1,6 +1,6 @@
 {
     "name": "magic",
-    "version": "1.0.0b29",
+    "version": "1.0.0b30",
     "description": "Dashboard Magic",
     "keywords": [
         "home-assistant",
@@ -11,7 +11,6 @@
         "dashboard",
         "custom-cards"
     ],
-    "type": "module",
     "module": "index.js",
     "repository": "git@github.com:yormedia/magic-card.git",
     "author": "yormedia <info@yormedia.eu>",
@@ -20,7 +19,9 @@
         "@babel/core": "^7.8.7",
         "@babel/plugin-proposal-class-properties": "^7.8.3",
         "@babel/plugin-proposal-decorators": "^7.8.3",
+        "@babel/preset-env": "^7.26.0",
         "@dermotduffy/custom-card-helpers": "^1.9.1",
+        "@formatjs/intl-utils": "^3.8.4",
         "@material/web": "^2.2.0",
         "@rollup/plugin-babel": "^5.3.1",
         "@rollup/plugin-commonjs": "^16.0.0",
