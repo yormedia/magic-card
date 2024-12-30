@@ -8,7 +8,7 @@ import { MagicCardConfig } from "../types/types";
 import { getCardData } from "../global/app";
 import { localize } from "../functions/localize";
 
-const card = getCardData("");
+const card = getCardData();
 
 registerCustomCard({
     type: card.type,
@@ -18,6 +18,11 @@ registerCustomCard({
 
 @customElement(card.type)
 export class MagicCard extends LitElement {
+    public static async getConfigElement(): Promise<LovelaceCardEditor> {
+        await import("../editor/magic-card-editor");
+        return document.createElement(card.editor.type) as LovelaceCardEditor;
+    }
+
     //   @property() protected _card?: LovelaceCard;
     @property() private config?: MagicCardConfig;
     private hass?: HomeAssistant;
@@ -31,10 +36,6 @@ export class MagicCard extends LitElement {
 
     static get styles() {
         return cardStyles;
-    }
-
-    static getConfigElement() {
-        return document.createElement("magic-card-editor");
     }
 
     static getStubConfig(): MagicCardConfig {

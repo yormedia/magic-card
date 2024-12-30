@@ -19,23 +19,13 @@ const serveopts = {
     },
 };
 
-const plugins = [
-    nodeResolve({}),
-    commonjs(),
-    typescript(),
-    json(),
-    // babel({
-    //     exclude: "node_modules/**",
-    // }),
-    dev && serve(serveopts),
-    !dev && terser(),
-];
+const plugins = [nodeResolve({}), commonjs(), typescript(), json(), dev && serve(serveopts), !dev && terser()];
 
 export default [
     {
         input: "src/index.ts",
         output: {
-            file: "dist/index.js",
+            dir: "dist",
             name: "MagicCard",
             format: "es",
         },
