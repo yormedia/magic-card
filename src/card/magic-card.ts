@@ -23,10 +23,10 @@ export class MagicCard extends LitElement {
         return document.createElement(card.editor.type) as LovelaceCardEditor;
     }
 
-    //   @property() protected _card?: LovelaceCard;
+    @property() protected card?: LovelaceCard;
     @property() private config?: MagicCardConfig;
-    @property({ attribute: false }) public hass!: HomeAssistant;
-    // private hass?: HomeAssistant;
+    // @property({ attribute: false }) public hass!: HomeAssistant;
+    private hass!: HomeAssistant;
 
     static get properties() {
         return {
@@ -86,5 +86,23 @@ export class MagicCard extends LitElement {
             </ha-card>
         `;
     }
+
+    // The height of your card. Home Assistant uses this to automatically
+    // distribute all cards over the available columns in masonry view
+    getCardSize() {
+        return 3;
+    }
+
+    // The rules for sizing your card in the grid in sections view
+    getLayoutOptions() {
+        return {
+            grid_rows: 3,
+            grid_columns: 2,
+            grid_min_rows: 3,
+            grid_max_rows: 3,
+        };
+    }
 }
+
+customElements.define("magic-card", MagicCard);
 // <!-- <div class="features">${(this.config.features || []).map((feature) => html` <magic-feature-row .hass=${this.hass} .feature=${feature}></magic-feature-row> `)}</div> -->

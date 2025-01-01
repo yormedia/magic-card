@@ -1,4 +1,4 @@
-# Magic Cards 2024.12.38b by [@yormedia](https://www.github.com/yormedia)
+# Magic Cards 2024.12.39b by [@yormedia](https://www.github.com/yormedia)
 
 A community driven magic of best practices for Home Assistant Lovelace custom cards
 

@@ -2,6 +2,6 @@
     "name": "Magic Card",
     "content_in_root": false,
     "render_readme": true,
-    "filename": "index.js",
+    "filename": "magic-card.js",
     "homeassistant": "2023.9.0"
 }
