@@ -92,9 +92,9 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
                         </mwc-tab>
                     </mwc-tab-bar>
                 </div>
-                <div id="editor">${[this._renderDataEditor, this._renderDesignEditor][this._selectedTab].bind(this)()}</div>
+                <div id="editor">${this._renderDataEditor}</div>
             </ha-form>
-        `;
+        `;//${[this._renderDataEditor, this._renderDesignEditor][this._selectedTab].bind(this)()}</div>
     }
 
     _renderDataEditor() {

@@ -1,6 +1,6 @@
 {
     "name": "magic",
-    "version": "2024.12.37b",
+    "version": "2024.12.38b",
     "description": "Dashboard Magic",
     "keywords": [
         "home-assistant",
@@ -11,7 +11,7 @@
         "dashboard",
         "custom-cards"
     ],
-    "module": "index.js",
+    "module": "magic-card.js",
     "repository": "git@github.com:yormedia/magic-card.git",
     "author": "yormedia <info@yormedia.eu>",
     "license": "MIT",
