@@ -110,7 +110,8 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
         return html`
             <!-- <div class="card-config">
                 <div id="editor"> -->
-            <mwc-select
+                ${this.makeDropdown("Entity (Required)", "entity", entities)}
+            <!-- <mwc-select
                 naturalMenuWidth
                 fixedMenuPosition
                 label="Entity (Required)"
@@ -122,7 +123,7 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
                 ${entities.map((entity) => {
                     return html`<mwc-list-item .value=${entity}>${entity}</mwc-list-item>`;
                 })}
-            </mwc-select>
+            </mwc-select> -->
             <mwc-textfield label="Name (Optional)" .value=${this._name} .configValue=${"name"} @input=${this._valueChanged}></mwc-textfield>
             <mwc-formfield .label=${`Toggle warning ${this._show_name ? "off" : "on"}`}>
                 <mwc-switch .checked=${this._show_name} .configValue=${"show_name"} @change=${this._valueChanged}></mwc-switch>
@@ -207,4 +208,34 @@ export class MagicCardEditor extends ScopedRegistryHost(LitElement) {
             flex-grow: 1;
         }
     `;
+
+makeDropdown(label, configValue, items, disabled = false) {
+    if (label.includes('icon') || label.includes('Icon')) {
+        return html`
+            <div class="ha-icon-picker">
+                <ha-icon-picker
+                    label="${label}"
+                    .value="${this['_' + configValue]}"
+                    .configValue="${configValue}"
+                    item-value-path="icon"
+                    item-label-path="icon"
+                    @value-changed="${this._valueChanged}"
+                ></ha-icon-picker>
+            </div>
+        `;
+    } else {
+        return html`
+        <div class="ha-combo-box">
+            <ha-combo-box
+                label="${label}"
+                .value="${this['_' + configValue]}"
+                .configValue="${configValue}"
+                .items="${items}"
+                .disabled="${disabled}"
+                @value-changed="${this._valueChanged}"
+            ></ha-combo-box>
+        </div>
+      `;
+    }
+}
 }

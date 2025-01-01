@@ -10,7 +10,7 @@ const dev = process.env.ROLLUP_WATCH;
 
 const serveopts = {
     contentBase: ["./dist"],
-    file: "index.js",
+    file: "magic-card.js",
     host: "127.0.0.1",
     port: 5035,
     allowCrossOrigin: true,
@@ -48,7 +48,7 @@ export default [
     {
         input: "src/index.ts",
         output: {
-            dir: "dist",
+            file: "dist/magic-card.js",
             name: "MagicCard",
             format: "es",
             inlineDynamicImports: true,
