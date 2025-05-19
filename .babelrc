@@ -1,0 +1,6 @@
+// magic-card-project/.babelrc
+{
+  "presets": [
+    "@babel/preset-env"
+  ]
+}
